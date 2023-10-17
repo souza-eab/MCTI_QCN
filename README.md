@@ -72,7 +72,7 @@ Map.addLayer(data_Total_carbon, visFlo,"data_Total_carbon");
    
    Folders 📂 are organized by key-steps  ✨ and contain a set of codes {} following the *QCN  QCN_rectify* classification scheme:
 
-1. ✨ Scripts [GEE.js](https://github.com/SEEG-Brazil/SEEG_MUT/tree/main/1._Spatial_analyses)
+1. ✨ Scripts [GEE.js](https://github.com/souza-eab/QCN)
 
 
 
