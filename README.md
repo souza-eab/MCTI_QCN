@@ -51,6 +51,8 @@ var path = 'projects/mapbiomas-workspace/SEEG/2023/QCN'
 
 ### +INFO Assets QCN (eg.total)
 
+[Link to script - 'total' ](https://code.earthengine.google.com/e76bbf6452f9ac4f647af3db75d3173e) | [Link to script - 'c_agb'](https://code.earthengine.google.com/0656bcd6a1bfc6ae3b3ea36a16b4671c)
+
 ```javascript
 // Data official (total)
 var data_Total_carbon = ee.ImageCollection('projects/mapbiomas-workspace/SEEG/2023/QCN/1_Asset_v0-1')
@@ -64,10 +66,7 @@ var visFlo = {min: 0,max: 200,
 Map.addLayer(data_Total_carbon, visFlo,"data_Total_carbon");
 ```
 
-[Link to script - 'total' ](https://code.earthengine.google.com/e76bbf6452f9ac4f647af3db75d3173e)
 
-
-[Link to script - 'c_agb'](https://code.earthengine.google.com/0656bcd6a1bfc6ae3b3ea36a16b4671c)
 
 ## Workflow
    
