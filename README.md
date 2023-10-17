@@ -49,8 +49,7 @@ var path = 'projects/mapbiomas-workspace/SEEG/2023/QCN'
 ```
 
 
-
-// +INFO Assets QCN (eg.total)
+### +INFO Assets QCN (eg.total)
 
 ```javascript
 // Data official (total)
