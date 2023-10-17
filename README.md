@@ -49,8 +49,10 @@ var path = 'projects/mapbiomas-workspace/SEEG/2023/QCN'
 ```
 
 
-```javascript
+
 // +INFO Assets QCN (eg.total)
+
+```javascript
 // Data official (total)
 var data_Total_carbon = ee.ImageCollection('projects/mapbiomas-workspace/SEEG/2023/QCN/1_Asset_v0-1')
   .select('total') //.select('c_agb'; 'c_bgb'; 'c_dw'; 'c_litter'; '...'; 'total')
