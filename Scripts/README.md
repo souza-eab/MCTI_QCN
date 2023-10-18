@@ -1,8 +1,18 @@
-2. ✨ Estimates.R [Estimates.R](https://github.com/SEEG-Brazil/SEEG_MUT/tree/main/2._Estimates)
+# --- Workflow
 
+## 0. ✨ Steps.R 
+
+# --- Step_0: 
+
+## Pre-processing official data, adding columns, rasterizing and uploading GCP to Earth Engine;
+
+
+
+# --- Step_1: 
 
 ## Step 0.1: 
-´´´
+
+´´´javascript
 Generate asset ´1_Asset_v0-1` join all the tiles, rasterize and export asset. Note: All biomes except the Amazon were rasterized to 30m. The Amazon Biome comes from the EBA (250m). To harmonize the asset, it was reprocessed from 250 to 30m. 
 
 ´´´
