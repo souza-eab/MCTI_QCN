@@ -1,5 +1,13 @@
 # QCN
 
+The data from BRAZIL'S `Fourth National Communication - (QCN) ` and Biannual Update Reports to the UNFCC has been made available by the MCTI in GEOPACKAGE format. 
+
+In this repository you can find: 
+
+`(1)` How we added, rasterized and exported the official data from GCP to Earth Engine;
+`(2)` The pixel-by-pixel rectification process by the weighted averages of the same document;  
+
+
 # QCN_spatial
 
 Based on the data available  `1_Asset_v0-1` (MCTI, 2020), only one column was included. 
