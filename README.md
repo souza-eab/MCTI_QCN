@@ -57,9 +57,9 @@ var path = 'projects/mapbiomas-workspace/SEEG/2023/QCN'
 ```
 
 
-### +INFO Assets QCN [+i](https://github.com/souza-eab/MCTI_QCN/tree/main/Scripts)
+### +INFO Assets QCN [👆+i](https://github.com/souza-eab/MCTI_QCN/tree/main/Scripts)
 
-[Link to script - 'total' ](https://code.earthengine.google.com/e76bbf6452f9ac4f647af3db75d3173e) | [Link to script - 'c_agb'](https://code.earthengine.google.com/0656bcd6a1bfc6ae3b3ea36a16b4671c)
+[Link to script - '👆total' ](https://code.earthengine.google.com/e76bbf6452f9ac4f647af3db75d3173e) | [Link to script - '👆c_agb'](https://code.earthengine.google.com/0656bcd6a1bfc6ae3b3ea36a16b4671c)
 
 ```javascript
 // Data official (total)
@@ -76,11 +76,11 @@ Map.addLayer(data_Total_carbon, visFlo,"data_Total_carbon");
 
 
 
-## Workflow ✨ [+i]([✨](https://github.com/souza-eab/MCTI_QCN/tree/main/Scripts)) 
+## Workflow ✨ [+i👆✨] (https://github.com/souza-eab/MCTI_QCN/tree/main/Scripts) 
    
    Folders 📂 are organized by key-steps  ✨ and contain a set of codes {} following the *QCN && QCN_rectify* classification scheme:
 
-1. ✨ Scripts [GEE.js](https://github.com/souza-eab/QCN)
+1. ✨ Scripts [👆 GEE.js](https://github.com/souza-eab/MCTI_QCN)
 
 
 
