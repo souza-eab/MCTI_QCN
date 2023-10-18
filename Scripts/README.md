@@ -26,38 +26,36 @@ Steps to rasterize, blend, rectify and export
 
 #  Results: 
 
-Below you can consult the official data and rectified data. To do this, click on codeLink:
+# Results [Assets](https://github.com/souza-eab/MCTI_QCN/tree/main/Scripts)
 
-# 1.1 AGB 
-[codeLink_EE_AGB.js👆](https://code.earthengine.google.com/f51fe42867d6ced16449d73a5980b816)
-<div align = 'center'>
-<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_AGB.jpg' height='auto' width='1380'/>
-</div>
+Once the data has been processed and is available in .EE, the path to accessing are:
 
-# 1.2 BGB 
-[codeLink_EE_BGB.js👆](https://code.earthengine.google.com/324a81112fa6288265189661c19292ec)
-<div align = 'center'>
-<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_BGB.jpg' height='auto' width='1380'/>
-</div>
+###  ---> 📂Folder QCN - root path: 
+```javascript
+var path = 'projects/mapbiomas-workspace/SEEG/2023/QCN'
+```
 
-# 1.3 CDW 
-[codeLink_EE_CDW.js👆](https://code.earthengine.google.com/b4c6dfb49b31355d77957727a94634ad)
-<div align = 'center'>
-<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_CDW.jpg' height='auto' width='1380'/>
-</div>
+| Asset | Description | Scale | format | Complete path | 
+| ----- | ----------- |-------|--------|---------------------------------------------|
+| `0_Data_Official_tiles`       | tile files from all biomes raster (GDAL)*                         | 30m          | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/0_Data_Official_tiles' 
+| `0_pastVegetation_v0-1`       | tile files from biome Amazon for rasterize (.EE)                  | 30m          | 'ee.Img'  | 'projects/mapbiomas-workspace/SEEG/2023/QCN/0_pastVegetation_v0-1' 
+| `0_pastVegetation_v0-2`       | tile files from biome Amazon for rasterize (.EE)                  | 250m         | 'ee.Img'  | 'projects/mapbiomas-workspace/SEEG/2023/QCN/0_pastVegetation_v0-2' 
+| `1_Asset_v0-1`                | Official data QCN - BR                                            | 30m          | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/1_Asset_v0-1' 
+| `1_Asset_v0-2`                | Official data QCN - BR                                            | 250m & 30m   | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/1_Asset_v0-2' 
+| `2_Asset_v0-1_rect`           | Official data ('QCN-BR') rectified by weighted average ´FITO´     | 30m          | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/2_Asset_v0-1_rect' 
+| `2_Asset_v0-2_rect`           | Official data ('QCN-BR') rectified by weighted average ´FITO´     | 250m & 30m   | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/2_Asset_v0-2_rect' 
+| `3_Asset_v0-1_rect_AGB`       | .........                rectified AGB by weighted average ´FITO´ | 30m          | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/3_Asset_v0-1_rect_AGB' 
+| `3_Asset_v0-1_rect_BGB`       | .........                rectified BGB by weighted average ´FITO´ | 30m          | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/3_Asset_v0-1_rect_BGB'
+| `3_Asset_v0-1_rect_CDW`       | .........                rectified CDW by weighted average ´FITO´ | 30m          | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/3_Asset_v0-1_rect_CDW'
+| `3_Asset_v0-1_rect_LIT`       | .........                rectified LIT by weighted average ´FITO´ | 30m          | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/3_Asset_v0-1_rect_LIT'
+| `4_Asset_v0-2_rect_AGB`       | .........                rectified AGB by weighted average ´FITO´ | 250 & 30m    | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/4_Asset_v0-2_rect_AGB' 
+| `4_Asset_v0-2_rect_BGB`       | .........                rectified BGB by weighted average ´FITO´ | 250 & 30m    | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/4_Asset_v0-2_rect_BGB'
+| `4_Asset_v0-2_rect_CDW`       | .........                rectified CDW by weighted average ´FITO´ | 250 & 30m    | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/4_Asset_v0-2_rect_CDW'
+| `4_Asset_v0-2_rect_LIT`       | .........                rectified LIT by weighted average ´FITO´ | 250 & 30m    | 'ee.ImgC' | 'projects/mapbiomas-workspace/SEEG/2023/QCN/4_Asset_v0-2_rect_LIT'
 
-# 1.4 LIT 
-[codeLink_EE_LIT.js👆](https://code.earthengine.google.com/fcf62c9a53ba1e88cbe80a67ab4f7307)
-<div align = 'center'>
-<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_LIT.jpg' height='auto' width='1380'/>
-</div>
-
-# 1.5 TOT 
-[codeLink_EE_TOTAL.js👆](https://code.earthengine.google.com/932dcf5bc460e4f13a8ee6286309a50e)
-<div align = 'center'>
-<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_TOTAL.jpg' height='auto' width='1380'/>
-</div>
-
+```javascript
+// *Expect biome AMZ
+```
 
 # - Notes: 
 
