@@ -16,6 +16,34 @@ Pre-processing official data, adding columns, rasterizing, and uploading GCP to 
    -- ´H1` - Mapbiomas and QCN disagree that they are the same class and assume values of the weighted average of phyto.
 ```
 
+#  Results: 
+
+
+# 1.1 AGB [AGB.js](https://code.earthengine.google.com/f51fe42867d6ced16449d73a5980b816)
+<div align = 'center'>
+<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_AGB.jpg' height='auto' width='1380'/>
+</div>
+
+# 1.2 BGB [BGB.js](https://code.earthengine.google.com/324a81112fa6288265189661c19292ec)
+<div align = 'center'>
+<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_BGB.jpg' height='auto' width='1380'/>
+</div>
+
+# 1.3 CDW [CDW.js](https://code.earthengine.google.com/b4c6dfb49b31355d77957727a94634ad)
+<div align = 'center'>
+<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_CDW.jpg' height='auto' width='1380'/>
+</div>
+
+# 1.4 LIT [LIT.js](https://code.earthengine.google.com/fcf62c9a53ba1e88cbe80a67ab4f7307)
+<div align = 'center'>
+<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_LIT.jpg' height='auto' width='1380'/>
+</div>
+
+# 1.5 TOT [TOTAL.js](https://code.earthengine.google.com/932dcf5bc460e4f13a8ee6286309a50e)
+<div align = 'center'>
+<img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_TOTAL.jpg' height='auto' width='1380'/>
+</div>
+
 
 # - Notes: 
 
