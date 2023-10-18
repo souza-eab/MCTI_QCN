@@ -25,7 +25,7 @@ This column is obtained by relating the **IBGE FITO** to the **LULC classes (Map
 
 The original data are geopackages. To ingest assets tile it into Earth Engine (.EE), all the biomes had to be divided into tiles. Well, like the Amazon process, it was also done using tiles.
 
-# Results Assets
+# Results [Assets](https://github.com/souza-eab/MCTI_QCN/tree/main/Scripts)
 
 Once the data has been processed and is available in .EE, the path to accessing are:
 
@@ -57,7 +57,7 @@ var path = 'projects/mapbiomas-workspace/SEEG/2023/QCN'
 ```
 
 
-### +INFO Assets QCN (eg.total)
+### +INFO Assets QCN [+i](https://github.com/souza-eab/MCTI_QCN/tree/main/Scripts)
 
 [Link to script - 'total' ](https://code.earthengine.google.com/e76bbf6452f9ac4f647af3db75d3173e) | [Link to script - 'c_agb'](https://code.earthengine.google.com/0656bcd6a1bfc6ae3b3ea36a16b4671c)
 
