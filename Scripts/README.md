@@ -2,7 +2,7 @@
 
 ## Step_0: 
 
-Pre-processing official data, adding columns (`0_1_addColumn`), rasterizing (`0_2_Rasterize`), and uploading GCP to Earth Engine (`0_3_GCP_to_GEE`);
+Pre-processing official data, adding columns (`0_1_addColumn.R`), rasterizing (`0_2_Rasterize.R`), and uploading GCP to Earth Engine (`0_3_GCP_to_GEE.py`);
 
 | script             | Description
 | ----               | ----- 
@@ -15,13 +15,13 @@ Pre-processing official data, adding columns (`0_1_addColumn`), rasterizing (`0_
 
 Steps to rasterize, blend, rectify and export
 
-| script                              | Description
-| ----                                | ----- 
-| `0_1_joinTiles_Rasterize_Amazon`    | Generate asset `0_pastVegetation_v0-1` join all the tiles, rasterize and export asset biome Amazon
-| `0_2_BlendBiomes`                   | Blending and standardizing assets per biome QCN and generating asset `1_Asset_v0-1`;
-| `0_3_rectQCN_eg_compart`            | Rectify pixels with Column MB_C8, we can check 2 situations, where: 
-|                                     | `H0` - Mapbiomas and QCN agree that they are the same class maintain the stocks;
-|                                     | `H1` - Mapbiomas and QCN disagree that they are the same class and assume values of the weighted average of phyto.
+| script                                 | Description
+| ----                                   | ----- 
+| `0_1_joinTiles_Rasterize_Amazon.js`    | Generate asset `0_pastVegetation_v0-1` join all the tiles, rasterize and export asset biome Amazon
+| `0_2_BlendBiomes.js`                   | Blending and standardizing assets per biome QCN and generating asset `1_Asset_v0-1`;
+| `0_3_rectQCN_eg_compart,js`            | Rectify pixels with Column MB_C8, we can check 2 situations, where: 
+|                                        | `H0` - Mapbiomas and QCN agree that they are the same class maintain the stocks;
+|                                        | `H1` - Mapbiomas and QCN disagree that they are the same class and assume values of the weighted average of phyto.
 
 
 #  Results: 
