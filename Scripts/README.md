@@ -1,45 +1,54 @@
-# Workflow ✨ Steps.R 
+# Workflow ✨ 
 
 ## Step_0: 
 
+Pre-processing official data, adding columns (`0_1_addColumn`), rasterizing (`0_2_Rasterize`), and uploading GCP to Earth Engine (`0_3_GCP_to_GEE`);
 
-Pre-processing official data, adding columns, rasterizing, and uploading GCP to Earth Engine;
+| script             | Description
+| ----               | ----- 
+| `0_1_addColumn`    | Add column from class Mapbiomas_C8
+| `0_2_Rasterize`    | Rasterize all biomes in 30m (raster/gdal)
+| `0_3_GCP_to_GEE`   | After upgrading to GCP, all the bricks are rasterized. Import and export in Earth Engine 
 
 
-#  Step_1: 
+##  Step_1:
 
-```javascript   
-   **0_1** - Generate asset ´0_pastVegetation_v0-1` join all the tiles, rasterize and export asset biome Amazon ()[]. 
-   **0_2** - Blending and standardizing assets per biome QCN and generating asset ´1_Asset_v0-1`;
-   **0_3** - Rectify pixels with Column MB_C8, we can check 2 situations, where: 
-   -- ´H0` - Mapbiomas and QCN agree that they are the same class maintain the stocks;
-   -- ´H1` - Mapbiomas and QCN disagree that they are the same class and assume values of the weighted average of phyto.
-```
+Steps to rasterize, blend, rectify and export
+
+| script                              | Description
+| ----                                | ----- 
+| `0_1_joinTiles_Rasterize_Amazon`    | Generate asset `0_pastVegetation_v0-1` join all the tiles, rasterize and export asset biome Amazon
+| `0_2_BlendBiomes`                   | Blending and standardizing assets per biome QCN and generating asset `1_Asset_v0-1`;
+| `0_3_rectQCN_eg_compart`            | Rectify pixels with Column MB_C8, we can check 2 situations, where: 
+|                                     | `H0` - Mapbiomas and QCN agree that they are the same class maintain the stocks;
+|                                     | `H1` - Mapbiomas and QCN disagree that they are the same class and assume values of the weighted average of phyto.
+
 
 #  Results: 
 
+Below you can consult the official data and rectified data. To do this, click on codeLink:
 
-# 1.1 AGB [AGB.js](https://code.earthengine.google.com/f51fe42867d6ced16449d73a5980b816)
+# 1.1 AGB [codeLink_EE_AGB.js](https://code.earthengine.google.com/f51fe42867d6ced16449d73a5980b816)
 <div align = 'center'>
 <img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_AGB.jpg' height='auto' width='1380'/>
 </div>
 
-# 1.2 BGB [BGB.js](https://code.earthengine.google.com/324a81112fa6288265189661c19292ec)
+# 1.2 BGB [codeLink_EE_BGB.js](https://code.earthengine.google.com/324a81112fa6288265189661c19292ec)
 <div align = 'center'>
 <img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_BGB.jpg' height='auto' width='1380'/>
 </div>
 
-# 1.3 CDW [CDW.js](https://code.earthengine.google.com/b4c6dfb49b31355d77957727a94634ad)
+# 1.3 CDW [codeLink_EE_CDW.js](https://code.earthengine.google.com/b4c6dfb49b31355d77957727a94634ad)
 <div align = 'center'>
 <img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_CDW.jpg' height='auto' width='1380'/>
 </div>
 
-# 1.4 LIT [LIT.js](https://code.earthengine.google.com/fcf62c9a53ba1e88cbe80a67ab4f7307)
+# 1.4 LIT [codeLink_EE_LIT.js](https://code.earthengine.google.com/fcf62c9a53ba1e88cbe80a67ab4f7307)
 <div align = 'center'>
 <img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_LIT.jpg' height='auto' width='1380'/>
 </div>
 
-# 1.5 TOT [TOTAL.js](https://code.earthengine.google.com/932dcf5bc460e4f13a8ee6286309a50e)
+# 1.5 TOT [codeLink_EE_TOTAL.js](https://code.earthengine.google.com/932dcf5bc460e4f13a8ee6286309a50e)
 <div align = 'center'>
 <img src='https://github.com/souza-eab/MCTI_QCN/blob/dev/aux/figures/QCN_vs_QCN_retificado_v2_TOTAL.jpg' height='auto' width='1380'/>
 </div>
