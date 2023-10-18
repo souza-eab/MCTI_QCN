@@ -1,25 +1,21 @@
 # --- Workflow ✨ Steps.R 
 
-## --- Step_0: 
+##   --- Step_0: 
 
-### Pre-processing official data, adding columns, rasterizing and uploading GCP to Earth Engine;
+Pre-processing official data, adding columns, rasterizing and uploading GCP to Earth Engine;
 
 
+#   --- Step_1: 
 
-# --- Step_1: 
+##   --- Step 0.1: 
 
-## Step 0.1: 
 Generate asset ´1_Asset_v0-1` join all the tiles, rasterize and export asset. Note: All biomes except the Amazon were rasterized to 30m. The Amazon Biome comes from the EBA (250m). To harmonize the asset, it was reprocessed from 250 to 30m. 
 
+##   --- Step 0.2: 
 
-
-## Step 0.2: 
-
-´´´
 Generate asset ´2_Asset_v0-2` add all the tiles, rasterize and export asset. 
-*All biomes except the Amazon have been rasterized to 30m. The Amazon Biome comes from the EBA (250m). To harmonize the asset, it was kept at 250 and the other biomes were kept at 30m. 
 
-´´´
+*All biomes except the Amazon have been rasterized to 30m. The Amazon Biome comes from the EBA (250m). To harmonize the asset, it was kept at 250 and the other biomes were kept at 30m. 
 #### Note: In general, the v0-1 versions are in 30m, so v0-2 is a combination of 250m (AMZ) and 30m (all biomes). 
 
 
