@@ -2,7 +2,7 @@
 
 ## Step_0: 
 
-Pre-processing official data, adding columns (`0_1_addColumn.R`), rasterizing (`0_2_Rasterize.R`), and uploading GCP to Earth Engine (`0_3_GCP_to_GEE.py`);
+Pre-processing official data, adding columns [`0_1_addColumn.R`](https://github.com/souza-eab/MCTI_QCN/blob/main/Scripts/Step_0/0_1_addColumn.r), rasterizing [`0_2_Rasterize.R`](https://github.com/souza-eab/MCTI_QCN/blob/main/Scripts/Step_0/0_2_Rasterize.r), and uploading GCP to Earth Engine [`0_3_GCP_to_GEE.py`](https://github.com/souza-eab/MCTI_QCN/blob/main/Scripts/Step_0/0_3_GCP_to_GEE.py);
 
 | script             | Description
 | ----               | ----- 
