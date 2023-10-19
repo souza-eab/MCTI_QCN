@@ -58,9 +58,8 @@ var path = 'projects/mapbiomas-workspace/SEEG/2023/QCN'
 ```
 
 # - Notes: 
+All biomes except the Amazon were rasterized to 30m `0_2_Rasterize`. The Amazon Biome from data the EBA (250m). 
 
-*All biomes except the Amazon were rasterized to 30m. The Amazon Biome comes from the EBA (250m). To harmonize the asset, it was reprocessed from 250 to 30m. 
+ In general, the v0-1 versions are in 30m, so v0-2 is a combination of 250m (AMZ) and 30m (all biomes).
 
-** All biomes except the Amazon have been rasterized to 30m. The Amazon Biome comes from the EBA (250m). To harmonize the asset, it was kept at 250 and the other biomes were kept at 30m. 
-*** In general, the v0-1 versions are in 30m, so v0-2 is a combination of 250m (AMZ) and 30m (all biomes). 
-**** In general, the rectified assets total is eg. ´2_Asset_v0-1_rect` and depending on the compartment the desired is added. or +ADD compartments eg. ´3_Asset_v0-1_rect_AGB`.
+In general, the rectified assets total is eg. `2_Asset_v0-1_rect`, and depending on the compartment the desired is added. or +ADD compartments eg. `3_Asset_v0-1_rect_AGB`. For more details, verify the top table.
