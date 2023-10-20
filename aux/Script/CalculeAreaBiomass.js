@@ -22,7 +22,7 @@ var qcn = ee.ImageCollection('projects/mapbiomas-workspace/SEEG/2023/QCN/2_Asset
 
 // --- Asset - AOI
 var geometry = ee.FeatureCollection("projects/mapbiomas-workspace/AUXILIAR/biomas-2019")
-                  .filterMetadata('Bioma', 'equals', 'Amazônia')
+                  .filterMetadata('Bioma', 'equals', 'Amazônia')  // Select Biome j interest
                   //.filterMetadata('Bioma', 'equals', 'Cerrado')
                   //.filterMetadata('Bioma', 'equals', 'Caatinga')
                   //.filterMetadata('Bioma', 'equals', 'Mata Atlântica')
@@ -32,8 +32,8 @@ var geometry = ee.FeatureCollection("projects/mapbiomas-workspace/AUXILIAR/bioma
 
 // --- Asset - LULC (Mapbiomas)
 var forest_1985= ee.Image('projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_integration_v1')
-  .eq(4) // Select your class (3-Forest; .... )
-  .select('classification_1985') //Select you year of interess
+  .eq(4)                          // Select class i (3-Forest; .... )
+  .select('classification_1985')  // Select year of interest
   .updateMask(qcn)
   .selfMask();
 
