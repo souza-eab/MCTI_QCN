@@ -1,7 +1,7 @@
 // Rectify 'AGB | BGB | CW | Litter' of QCN per native vegetation classe by using Mapbiomas Collection 8.0 LCLUC as reference  
 // For any issue/bug, please write to <edriano.souza@ipam.org.br> and/or <barbara.zimbres@ipam.org.br>
 // SEEG/Observatório do Clima and IPAM
-// Current version: 2.0
+// Current version: 2.1
 
 // @ UPDATE HISTORIC @ //
 // 1:  Compute number of divergences by comparing qcn past vegetation and mapbiomas 8.0 (per year)
@@ -12,7 +12,7 @@
 
 //* @ Set user parameters *//
 // var dir_output = 'projects/mapbiomas-workspace/SEEG/2023/QCN/2_Asset_v0-1_rect';
-// var dir_output = 'projects/mapbiomas-workspace/SEEG/2023/QCN/2_Asset_v0-2_rect';
+// var dir_output = 'projects/mapbiomas-workspace/SEEG/2023/QCN/2_Asset_v0-2_rect'; // TOTAL
 
 //AGB
 //var dir_output = 'projects/mapbiomas-workspace/SEEG/2023/QCN/3_Asset_v0-1_rect_AGB' // 30 m
@@ -162,284 +162,288 @@ list_biomes.forEach(function(biome_i) {
       // when biome equals amazonia
       
       // AGB
-      //if (biome_i == 1) {
-      //  biome_name = 'amazonia';  //Check this 09/10, OK                                            
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 20.72);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  53.16);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),  25.80); 
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  20.72);  // equal class forest (3) //not include em .csv           
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11), 38.40);       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 30.92);  
-      //} // Amazonia conferida
-      //
-      //// when biome equals to mata atlantica
-      //if (biome_i == 2) {
-      //  biome_name = 'mata_atlantica';  //Check this 09/10, OK
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 92.45);   
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  24.84);     
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),  62.42);        
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  92.45);  // equal class forest (3) //not include em .csv                                                
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11), 78.54);       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 2.63);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(13), 62.42); 
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49), 79.71);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50), 79.71);  // equal class forest (49) //not include em .csv         
-      //} // MA conferida
-      //
-      //// when biome equals to pantanal
-      //if (biome_i == 3) {
-      //  biome_name = 'pantanal';   //Check this 09/10, OK
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 82.75);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  13.55);       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  82.75);  // equal class forest (3) //not include em .csv                                            
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11), 6.68);
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 5.95);    
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(13), 6.68);  //*BZ   // equal class forest (11) //not include em .csv       
-      //} 
-      //
-      //// when biome equals to cerrado
-      //if (biome_i == 4) {
-      //  biome_name = 'cerrado';   //Check this 09/10, OK
-      //  // when discordance equal to forest formation           
-      //  var tot_rect = biome_tot.where(states.eq(11).and(discordance_ijk.eq(3)), 51.09519632);      // RO // Falta dado e colocamos a média geral da UFs //*BZ
-      //      tot_rect = tot_rect.where(states.eq(15).and(discordance_ijk.eq(3)),  49.69692342);      // PA OK
-      //      tot_rect = tot_rect.where(states.eq(17).and(discordance_ijk.eq(3)),  45.41707464);      // TO OK
-      //      tot_rect = tot_rect.where(states.eq(21).and(discordance_ijk.eq(3)),  41.67536965);      // MA OK
-      //      tot_rect = tot_rect.where(states.eq(22).and(discordance_ijk.eq(3)),  40.48964273);      // PI OK
-      //      tot_rect = tot_rect.where(states.eq(29).and(discordance_ijk.eq(3)),  41.02542625);      // BA OK
-      //      tot_rect = tot_rect.where(states.eq(31).and(discordance_ijk.eq(3)),  43.30993279);      // MG OK
-      //      tot_rect = tot_rect.where(states.eq(35).and(discordance_ijk.eq(3)),  54.33923594);      // SP OK
-      //      tot_rect = tot_rect.where(states.eq(41).and(discordance_ijk.eq(3)),  50.12589671);      // PR OK
-      //      tot_rect = tot_rect.where(states.eq(50).and(discordance_ijk.eq(3)),  67.34418465);      // MS OK
-      //      tot_rect = tot_rect.where(states.eq(51).and(discordance_ijk.eq(3)),  65.8869862);       // MT OK
-      //      tot_rect = tot_rect.where(states.eq(52).and(discordance_ijk.eq(3)),  43.30821719);      // GO OK
-      //      tot_rect = tot_rect.where(states.eq(53).and(discordance_ijk.eq(3)),  47.8176185);       // DF OK
-      //      
-      //  // when discordance equal to other types of NV   // Diff Version                                
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),   12.39);                              
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),   25.83); //*BZ                           
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11),  25.64);                              
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12),   1.06);                               
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49),  23.46); //*BZ                              
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50),  23.46); //*BZ // equal class forest (49) //not include em .csv 
-      //}
-      //
-      //// when biome equal to caatinga
-      //if (biome_i == 5) { 
-      //  biome_name = 'caatinga';    //Check this 09/10, OK
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 43.04);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  9.97);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),  123.08);  
-      //      // tot_rect = tot_rect.where(discordance_ijk.eq(6),  43.04);        //equal class 3                                    
-      //     // tot_rect = tot_rect.where(discordance_ijk.eq(11), 36.21); //?
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 6.33);  
-      //      //tot_rect = tot_rect.where(discordance_ijk.eq(13), 83.06);//?
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49), 101.61); 
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50), 101.61); //*BZ // equal class forest (49) //not include em .csv 
-      //} // Class 11 e 13  not fitofisionomias.xls
-      //
-      //// when biome equal to pampa
-      //if (biome_i == 6) {
-      //  biome_name = 'pampa';
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 52.92);   
-      //      // tot_rect = tot_rect.where(discordance_ijk.eq(5),  12.77);  
-      //      //tot_rect = tot_rect.where(discordance_ijk.eq(6), 52.92);                                                   
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11), 1.03);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 11.54);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49), 1.03); 
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50), 1.03); //*BZ // equal class forest (49) //not include em .csv 
-      //} 
+      /*
+      if (biome_i == 1) {
+        biome_name = 'amazonia';  //Check this 09/10, OK                                            
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 20.72);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  53.16);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),  25.80); 
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  20.72);  // equal class forest (3) //not include em .csv           
+            tot_rect = tot_rect.where(discordance_ijk.eq(11), 38.40);       
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 30.92);  
+      } // Amazonia conferida
+      
+      // when biome equals to mata atlantica
+      if (biome_i == 2) {
+        biome_name = 'mata_atlantica';  //Check this 09/10, OK
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 92.45);   
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  24.84);     
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),  62.42);        
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  92.45);  // equal class forest (3) //not include em .csv                                                
+            tot_rect = tot_rect.where(discordance_ijk.eq(11), 78.54);       
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 2.63);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(13), 62.42); 
+            tot_rect = tot_rect.where(discordance_ijk.eq(49), 79.71);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(50), 79.71);  // equal class forest (49) //not include em .csv         
+      } // MA conferida
+      
+      // when biome equals to pantanal
+      if (biome_i == 3) {
+        biome_name = 'pantanal';   //Check this 09/10, OK
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 82.75);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  13.55);       
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  82.75);  // equal class forest (3) //not include em .csv                                            
+            tot_rect = tot_rect.where(discordance_ijk.eq(11), 6.68);
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 5.95);    
+            tot_rect = tot_rect.where(discordance_ijk.eq(13), 6.68);  //*BZ   // equal class forest (11) //not include em .csv       
+      } 
+      
+      // when biome equals to cerrado
+      if (biome_i == 4) {
+        biome_name = 'cerrado';   //Check this 09/10, OK
+        // when discordance equal to forest formation           
+        var tot_rect = biome_tot.where(states.eq(11).and(discordance_ijk.eq(3)), 51.09519632);      // RO // Falta dado e colocamos a média geral da UFs //*BZ
+            tot_rect = tot_rect.where(states.eq(15).and(discordance_ijk.eq(3)),  49.69692342);      // PA OK
+            tot_rect = tot_rect.where(states.eq(17).and(discordance_ijk.eq(3)),  45.41707464);      // TO OK
+            tot_rect = tot_rect.where(states.eq(21).and(discordance_ijk.eq(3)),  41.67536965);      // MA OK
+            tot_rect = tot_rect.where(states.eq(22).and(discordance_ijk.eq(3)),  40.48964273);      // PI OK
+            tot_rect = tot_rect.where(states.eq(29).and(discordance_ijk.eq(3)),  41.02542625);      // BA OK
+            tot_rect = tot_rect.where(states.eq(31).and(discordance_ijk.eq(3)),  43.30993279);      // MG OK
+            tot_rect = tot_rect.where(states.eq(35).and(discordance_ijk.eq(3)),  54.33923594);      // SP OK
+            tot_rect = tot_rect.where(states.eq(41).and(discordance_ijk.eq(3)),  50.12589671);      // PR OK
+            tot_rect = tot_rect.where(states.eq(50).and(discordance_ijk.eq(3)),  67.34418465);      // MS OK
+            tot_rect = tot_rect.where(states.eq(51).and(discordance_ijk.eq(3)),  65.8869862);       // MT OK
+            tot_rect = tot_rect.where(states.eq(52).and(discordance_ijk.eq(3)),  43.30821719);      // GO OK
+            tot_rect = tot_rect.where(states.eq(53).and(discordance_ijk.eq(3)),  47.8176185);       // DF OK
+            
+        // when discordance equal to other types of NV   // Diff Version                                
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),   12.39);                              
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),   25.83); //*BZ                           
+            tot_rect = tot_rect.where(discordance_ijk.eq(11),  25.64);                              
+            tot_rect = tot_rect.where(discordance_ijk.eq(12),   1.06);                               
+            tot_rect = tot_rect.where(discordance_ijk.eq(49),  23.46); //*BZ                              
+            tot_rect = tot_rect.where(discordance_ijk.eq(50),  23.46); //*BZ // equal class forest (49) //not include em .csv 
+      }
+      
+      // when biome equal to caatinga
+      if (biome_i == 5) { 
+        biome_name = 'caatinga';    //Check this 09/10, OK
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 43.04);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  9.97);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),  123.08);  
+            // tot_rect = tot_rect.where(discordance_ijk.eq(6),  43.04);        //equal class 3                                    
+           // tot_rect = tot_rect.where(discordance_ijk.eq(11), 36.21); //?
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 6.33);  
+            //tot_rect = tot_rect.where(discordance_ijk.eq(13), 83.06);//?
+            tot_rect = tot_rect.where(discordance_ijk.eq(49), 101.61); 
+            tot_rect = tot_rect.where(discordance_ijk.eq(50), 101.61); //*BZ // equal class forest (49) //not include em .csv 
+      } // Class 11 e 13  not fitofisionomias.xls
+      
+      // when biome equal to pampa
+      if (biome_i == 6) {
+        biome_name = 'pampa';
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 52.92);   
+            // tot_rect = tot_rect.where(discordance_ijk.eq(5),  12.77);  
+            //tot_rect = tot_rect.where(discordance_ijk.eq(6), 52.92);                                                   
+            tot_rect = tot_rect.where(discordance_ijk.eq(11), 1.03);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 11.54);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(49), 1.03); 
+            tot_rect = tot_rect.where(discordance_ijk.eq(50), 1.03); //*BZ // equal class forest (49) //not include em .csv 
+      } 
+      */
 
 
       ///////////////////////////////////////////////////////////////////////////////////////////////////////
       // BGB 
       /////////////////////////////////////////////////////////////////////////////////////////////////////
-      //if (biome_i == 1) {
-      //  biome_name = 'amazonia';                                    // Check this 10/10, OK                                              
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3),  44.42);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  109.26);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),    9.60);
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),   44.42); // equal class forest (3) //not include em .csv            
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11),  14.20);       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12),  73.85);  
-      //} // 
-      //
-      //// when biome equals to mata atlantica
-      //if (biome_i == 2) {
-      //  biome_name = 'mata_atlantica';                                 // Check this 10/10, OK     
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 21.88);   
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  15.67);     
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),  14.67);        
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  21.88);  // equal class forest (3) //not include em .csv                                                  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11), 18.46);       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12),  8.74);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(13), 14.67);       // equal class 5
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49), 18.73);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50), 18.73);  //*BZ // equal class forest (49) //not include em .csv 
-      //} // 
-      //
-      //// when biome equals to pantanal
-      //if (biome_i == 3) {
-      //  biome_name = 'pantanal';                                      // Check this 10/10, OK     
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 18.55);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  21.87);       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  18.55); // equal class forest (3) //not include em .csv                                              
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11), 17.05);
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 16.14);    
-      //      //tot_rect = tot_rect.where(discordance_ijk.eq(13), 17.05); //*BZ    // equal class 11
-      //} // 11 e 12 inversão
-      //
-      //// when biome equals to cerrado
-      //if (biome_i == 4) {
-      //  biome_name = 'cerrado';                                                               // Check this 10/10, OK    
-      //  // when discordance equal to forest formation           
-      //  var tot_rect = biome_tot.where(states.eq(11).and(discordance_ijk.eq(3)), 13.70764591 );     // RO // Falta dado e colocamos a média geral da UFs //*BZ
-      //      tot_rect = tot_rect.where(states.eq(15).and(discordance_ijk.eq(3)),  13.01829324);      // PA
-      //      tot_rect = tot_rect.where(states.eq(17).and(discordance_ijk.eq(3)),  12.04954015);      // TO 
-      //      tot_rect = tot_rect.where(states.eq(21).and(discordance_ijk.eq(3)),  11.46403431);      // MA 
-      //      tot_rect = tot_rect.where(states.eq(22).and(discordance_ijk.eq(3)),  12.06534843);      // PI 
-      //      tot_rect = tot_rect.where(states.eq(29).and(discordance_ijk.eq(3)),  12.15628228);      // BA 
-      //      tot_rect = tot_rect.where(states.eq(31).and(discordance_ijk.eq(3)),  12.1240573);       // MG 
-      //      tot_rect = tot_rect.where(states.eq(35).and(discordance_ijk.eq(3)),  13.9712752);       // SP 
-      //      tot_rect = tot_rect.where(states.eq(41).and(discordance_ijk.eq(3)),  13.27649275);      // PR 
-      //      tot_rect = tot_rect.where(states.eq(50).and(discordance_ijk.eq(3)),  16.86113548);      // MS 
-      //      tot_rect = tot_rect.where(states.eq(51).and(discordance_ijk.eq(3)),  16.95780156);      // MT 
-      //      tot_rect = tot_rect.where(states.eq(52).and(discordance_ijk.eq(3)),  12.11797312);      // GO 
-      //      tot_rect = tot_rect.where(states.eq(53).and(discordance_ijk.eq(3)),  12.98650336);      // DF 
-      //      
-      //  // when discordance equal to other types of NV   // Diff Version                     // Check this 10/10, OK    
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  24.11);                              
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),    9.55); //*BZ                           
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11),   7.28);                              
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12),   3.55);                               
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49),   8.68); //*BZ                              
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50),   8.68); //*BZ
-      //}
-      //
-      //// when biome equal to caatinga
-      //if (biome_i == 5) {
-      //  biome_name = 'caatinga';                                                              // Check this 10/10, OK    
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 14.51);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),   7.30);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),  37.75);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  14.51);            // equal class forest (3) //not include em .csv                                          
-      //      // tot_rect = tot_rect.where(discordance_ijk.eq(11), ); //?
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 8.44);  
-      //      //tot_rect = tot_rect.where(discordance_ijk.eq(13), );//?
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49), 21.89); 
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50), 21.89); //*BZ // equal class forest (49) //not include em .csv 
-      //} // Class 11 e 13  not fitofisionomias.xls
-      //
-      //// when biome equal to pampa
-      //if (biome_i == 6) {
-      //  biome_name = 'pampa';                                                              // Check this 10/10, OK    
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 14.18);   
-      //      // tot_rect = tot_rect.where(discordance_ijk.eq(5),  12.77); // No have  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  14.18);           // equal class forest (3) //not include em .csv                                                       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11),  8.35);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12),  5.70);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49), 10.15); 
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50), 10.15); //*BZ // equal class forest (49) 
-      //} // 49 e 50 include Babi
+      /*
+      if (biome_i == 1) {
+        biome_name = 'amazonia';                                    // Check this 10/10, OK                                              
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3),  44.42);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  109.26);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),    9.60);
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),   44.42); // equal class forest (3) //not include em .csv            
+            tot_rect = tot_rect.where(discordance_ijk.eq(11),  14.20);       
+            tot_rect = tot_rect.where(discordance_ijk.eq(12),  73.85);  
+      } // 
       
+      // when biome equals to mata atlantica
+      if (biome_i == 2) {
+        biome_name = 'mata_atlantica';                                 // Check this 10/10, OK     
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 21.88);   
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  15.67);     
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),  14.67);        
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  21.88);  // equal class forest (3) //not include em .csv                                                  
+            tot_rect = tot_rect.where(discordance_ijk.eq(11), 18.46);       
+            tot_rect = tot_rect.where(discordance_ijk.eq(12),  8.74);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(13), 14.67);       // equal class 5
+            tot_rect = tot_rect.where(discordance_ijk.eq(49), 18.73);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(50), 18.73);  //*BZ // equal class forest (49) //not include em .csv 
+      } // 
       
+      // when biome equals to pantanal
+      if (biome_i == 3) {
+        biome_name = 'pantanal';                                      // Check this 10/10, OK     
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 18.55);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  21.87);       
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  18.55); // equal class forest (3) //not include em .csv                                              
+            tot_rect = tot_rect.where(discordance_ijk.eq(11), 17.05);
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 16.14);    
+            //tot_rect = tot_rect.where(discordance_ijk.eq(13), 17.05); //*BZ    // equal class 11
+      } // 11 e 12 inversão
+      
+      // when biome equals to cerrado
+      if (biome_i == 4) {
+        biome_name = 'cerrado';                                                               // Check this 10/10, OK    
+        // when discordance equal to forest formation           
+        var tot_rect = biome_tot.where(states.eq(11).and(discordance_ijk.eq(3)), 13.70764591 );     // RO // Falta dado e colocamos a média geral da UFs //*BZ
+            tot_rect = tot_rect.where(states.eq(15).and(discordance_ijk.eq(3)),  13.01829324);      // PA
+            tot_rect = tot_rect.where(states.eq(17).and(discordance_ijk.eq(3)),  12.04954015);      // TO 
+            tot_rect = tot_rect.where(states.eq(21).and(discordance_ijk.eq(3)),  11.46403431);      // MA 
+            tot_rect = tot_rect.where(states.eq(22).and(discordance_ijk.eq(3)),  12.06534843);      // PI 
+            tot_rect = tot_rect.where(states.eq(29).and(discordance_ijk.eq(3)),  12.15628228);      // BA 
+            tot_rect = tot_rect.where(states.eq(31).and(discordance_ijk.eq(3)),  12.1240573);       // MG 
+            tot_rect = tot_rect.where(states.eq(35).and(discordance_ijk.eq(3)),  13.9712752);       // SP 
+            tot_rect = tot_rect.where(states.eq(41).and(discordance_ijk.eq(3)),  13.27649275);      // PR 
+            tot_rect = tot_rect.where(states.eq(50).and(discordance_ijk.eq(3)),  16.86113548);      // MS 
+            tot_rect = tot_rect.where(states.eq(51).and(discordance_ijk.eq(3)),  16.95780156);      // MT 
+            tot_rect = tot_rect.where(states.eq(52).and(discordance_ijk.eq(3)),  12.11797312);      // GO 
+            tot_rect = tot_rect.where(states.eq(53).and(discordance_ijk.eq(3)),  12.98650336);      // DF 
+            
+        // when discordance equal to other types of NV   // Diff Version                     // Check this 10/10, OK    
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  24.11);                              
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),    9.55); //*BZ                           
+            tot_rect = tot_rect.where(discordance_ijk.eq(11),   7.28);                              
+            tot_rect = tot_rect.where(discordance_ijk.eq(12),   3.55);                               
+            tot_rect = tot_rect.where(discordance_ijk.eq(49),   8.68); //*BZ                              
+            tot_rect = tot_rect.where(discordance_ijk.eq(50),   8.68); //*BZ
+      }
+      
+      // when biome equal to caatinga
+      if (biome_i == 5) {
+        biome_name = 'caatinga';                                                              // Check this 10/10, OK    
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 14.51);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),   7.30);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),  37.75);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  14.51);            // equal class forest (3) //not include em .csv                                          
+            // tot_rect = tot_rect.where(discordance_ijk.eq(11), ); //?
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 8.44);  
+            //tot_rect = tot_rect.where(discordance_ijk.eq(13), );//?
+            tot_rect = tot_rect.where(discordance_ijk.eq(49), 21.89); 
+            tot_rect = tot_rect.where(discordance_ijk.eq(50), 21.89); //*BZ // equal class forest (49) //not include em .csv 
+      } // Class 11 e 13  not fitofisionomias.xls
+      
+      // when biome equal to pampa
+      if (biome_i == 6) {
+        biome_name = 'pampa';                                                              // Check this 10/10, OK    
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 14.18);   
+            // tot_rect = tot_rect.where(discordance_ijk.eq(5),  12.77); // No have  
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  14.18);           // equal class forest (3) //not include em .csv                                                       
+            tot_rect = tot_rect.where(discordance_ijk.eq(11),  8.35);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(12),  5.70);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(49), 10.15); 
+            tot_rect = tot_rect.where(discordance_ijk.eq(50), 10.15); //*BZ // equal class forest (49) 
+      } // 49 e 50 include Babi
+      */
+
       /////////////////////////////////////////////////////////////////////////////////////////////////////
       // C_DW
       /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-      //if (biome_i == 1) {
-      //  biome_name = 'amazonia';                                                            // Check this 10/10, OK 
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3),  11.03);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),    0.21);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),    2.80); 
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),   11.03);           // equal class forest (3) //not include em .csv       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11),   4.20);       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12),   0.49);  
-      //} // 
-      //
-      //// when biome equals to mata atlantica
-      //if (biome_i == 2) {
-      //  biome_name = 'mata_atlantica';                                          // Check this 10/10, OK 
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 3.29);   
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  2.80);     
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),  2.98);        
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  3.29);            // equal class forest (3) //not include em .csv                                           
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11), 2.98);       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 0.47);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(13), 2.98);            // equal class 5
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49), 2.98);  
-      //      //tot_rect = tot_rect.where(discordance_ijk.eq(50), 2.98);       
-      //} // 
-      //
-      //// when biome equals to pantanal
-      //if (biome_i == 3) {
-      //  biome_name = 'pantanal';                                               // Check this 10/10, OK   
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 8.97);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  1.75);       
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  8.97);           // equal class forest (3) //not include em .csv                                      
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11), 0.05);
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 0.04);    
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(13), 0.04);         //*BZ   Equal - Class12
-      //} 
-      //
-      //// when biome equals to cerrado
-      //if (biome_i == 4) {
-      //  biome_name = 'cerrado';                                                // Check this 10/10, OK   
-      //  // when discordance equal to forest formation           
-      //  var tot_rect = biome_tot.where(states.eq(11).and(discordance_ijk.eq(3)), 5.265697147);      // RO // Falta dado e colocamos a média geral da UFs //*BZ
-      //      tot_rect = tot_rect.where(states.eq(15).and(discordance_ijk.eq(3)),  5.090127638);      // PA
-      //      tot_rect = tot_rect.where(states.eq(17).and(discordance_ijk.eq(3)),  4.504146917);      // TO 
-      //      tot_rect = tot_rect.where(states.eq(21).and(discordance_ijk.eq(3)),  4.526216838);      // MA 
-      //      tot_rect = tot_rect.where(states.eq(22).and(discordance_ijk.eq(3)),  4.53712416);       // PI 
-      //      tot_rect = tot_rect.where(states.eq(29).and(discordance_ijk.eq(3)),  4.598862162);      // BA 
-      //      tot_rect = tot_rect.where(states.eq(31).and(discordance_ijk.eq(3)),  4.453195378);      // MG 
-      //      tot_rect = tot_rect.where(states.eq(35).and(discordance_ijk.eq(3)),  5.150887277);      // SP 
-      //      tot_rect = tot_rect.where(states.eq(41).and(discordance_ijk.eq(3)),  5.004357387);      // PR 
-      //      tot_rect = tot_rect.where(states.eq(50).and(discordance_ijk.eq(3)),  6.789604999);      // MS 
-      //      tot_rect = tot_rect.where(states.eq(51).and(discordance_ijk.eq(3)),  6.666008136);      // MT 
-      //      tot_rect = tot_rect.where(states.eq(52).and(discordance_ijk.eq(3)),  4.451804033);      // GO 
-      //      tot_rect = tot_rect.where(states.eq(53).and(discordance_ijk.eq(3)),  4.905880203);      // DF 
-      //      
-      //  // when discordance equal to other types of NV   // Diff Version                                
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),    1.72);                              
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),    2.84);                               
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11),   2.29);                              
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12),   0.00);                               
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49),   2.58);                     
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50),   2.58); //*BZ
-      //}
-      //
-      //// when biome equal to caatinga
-      //if (biome_i == 5) {
-      //  biome_name = 'caatinga';                                                // Check this 10/10, OK  
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3), 6.04);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(4),  1.31);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(5),  9.53);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),  6.04);            //equal class 3                                    
-      //     // tot_rect = tot_rect.where(discordance_ijk.eq(11), ); //?
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12), 0.26);  
-      //      //tot_rect = tot_rect.where(discordance_ijk.eq(13), );//?
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49), 22.18); 
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50), 22.18); //*BZ equal 49
-      //} // Class 11 e 13  not fitofisionomias.xls
-      //
-      //// when biome equal to pampa
-      //if (biome_i == 6) {
-      //  biome_name = 'pampa';                                                // Check this 10/10, OK  
-      //  var tot_rect = biome_tot.where(discordance_ijk.eq(3),  5.81);   
-      //      // tot_rect = tot_rect.where(discordance_ijk.eq(5), ); // No 
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(6),   5.81); // no                                            
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(11),  0.0);  //*BZ
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(12),  1.28);  
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(49),  0.0); //*BZ
-      //      tot_rect = tot_rect.where(discordance_ijk.eq(50),  0.0); //*BZ
-      //} // 49 e 50 include Babi
+      /*
+      if (biome_i == 1) {
+        biome_name = 'amazonia';                                                            // Check this 10/10, OK 
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3),  11.03);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),    0.21);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),    2.80); 
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),   11.03);           // equal class forest (3) //not include em .csv       
+            tot_rect = tot_rect.where(discordance_ijk.eq(11),   4.20);       
+            tot_rect = tot_rect.where(discordance_ijk.eq(12),   0.49);  
+      } // 
       
+      // when biome equals to mata atlantica
+      if (biome_i == 2) {
+        biome_name = 'mata_atlantica';                                          // Check this 10/10, OK 
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 3.29);   
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  2.80);     
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),  2.98);        
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  3.29);            // equal class forest (3) //not include em .csv                                           
+            tot_rect = tot_rect.where(discordance_ijk.eq(11), 2.98);       
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 0.47);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(13), 2.98);            // equal class 5
+            tot_rect = tot_rect.where(discordance_ijk.eq(49), 2.98);  
+            //tot_rect = tot_rect.where(discordance_ijk.eq(50), 2.98);       
+      } // 
+      
+      // when biome equals to pantanal
+      if (biome_i == 3) {
+        biome_name = 'pantanal';                                               // Check this 10/10, OK   
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 8.97);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  1.75);       
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  8.97);           // equal class forest (3) //not include em .csv                                      
+            tot_rect = tot_rect.where(discordance_ijk.eq(11), 0.05);
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 0.04);    
+            tot_rect = tot_rect.where(discordance_ijk.eq(13), 0.04);         //*BZ   Equal - Class12
+      } 
+      
+      // when biome equals to cerrado
+      if (biome_i == 4) {
+        biome_name = 'cerrado';                                                // Check this 10/10, OK   
+        // when discordance equal to forest formation           
+        var tot_rect = biome_tot.where(states.eq(11).and(discordance_ijk.eq(3)), 5.265697147);      // RO // Falta dado e colocamos a média geral da UFs //*BZ
+            tot_rect = tot_rect.where(states.eq(15).and(discordance_ijk.eq(3)),  5.090127638);      // PA
+            tot_rect = tot_rect.where(states.eq(17).and(discordance_ijk.eq(3)),  4.504146917);      // TO 
+            tot_rect = tot_rect.where(states.eq(21).and(discordance_ijk.eq(3)),  4.526216838);      // MA 
+            tot_rect = tot_rect.where(states.eq(22).and(discordance_ijk.eq(3)),  4.53712416);       // PI 
+            tot_rect = tot_rect.where(states.eq(29).and(discordance_ijk.eq(3)),  4.598862162);      // BA 
+            tot_rect = tot_rect.where(states.eq(31).and(discordance_ijk.eq(3)),  4.453195378);      // MG 
+            tot_rect = tot_rect.where(states.eq(35).and(discordance_ijk.eq(3)),  5.150887277);      // SP 
+            tot_rect = tot_rect.where(states.eq(41).and(discordance_ijk.eq(3)),  5.004357387);      // PR 
+            tot_rect = tot_rect.where(states.eq(50).and(discordance_ijk.eq(3)),  6.789604999);      // MS 
+            tot_rect = tot_rect.where(states.eq(51).and(discordance_ijk.eq(3)),  6.666008136);      // MT 
+            tot_rect = tot_rect.where(states.eq(52).and(discordance_ijk.eq(3)),  4.451804033);      // GO 
+            tot_rect = tot_rect.where(states.eq(53).and(discordance_ijk.eq(3)),  4.905880203);      // DF 
+            
+        // when discordance equal to other types of NV   // Diff Version                                
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),    1.72);                              
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),    2.84);                               
+            tot_rect = tot_rect.where(discordance_ijk.eq(11),   2.29);                              
+            tot_rect = tot_rect.where(discordance_ijk.eq(12),   0.00);                               
+            tot_rect = tot_rect.where(discordance_ijk.eq(49),   2.58);                     
+            tot_rect = tot_rect.where(discordance_ijk.eq(50),   2.58); //*BZ
+      }
+      
+      // when biome equal to caatinga
+      if (biome_i == 5) {
+        biome_name = 'caatinga';                                                // Check this 10/10, OK  
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3), 6.04);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(4),  1.31);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(5),  9.53);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),  6.04);            //equal class 3                                    
+           // tot_rect = tot_rect.where(discordance_ijk.eq(11), ); //?
+            tot_rect = tot_rect.where(discordance_ijk.eq(12), 0.26);  
+            //tot_rect = tot_rect.where(discordance_ijk.eq(13), );//?
+            tot_rect = tot_rect.where(discordance_ijk.eq(49), 22.18); 
+            tot_rect = tot_rect.where(discordance_ijk.eq(50), 22.18); //*BZ equal 49
+      } // Class 11 e 13  not fitofisionomias.xls
+      
+      // when biome equal to pampa
+      if (biome_i == 6) {
+        biome_name = 'pampa';                                                // Check this 10/10, OK  
+        var tot_rect = biome_tot.where(discordance_ijk.eq(3),  5.81);   
+            // tot_rect = tot_rect.where(discordance_ijk.eq(5), ); // No 
+            tot_rect = tot_rect.where(discordance_ijk.eq(6),   5.81); // no                                            
+            tot_rect = tot_rect.where(discordance_ijk.eq(11),  0.0);  //*BZ
+            tot_rect = tot_rect.where(discordance_ijk.eq(12),  1.28);  
+            tot_rect = tot_rect.where(discordance_ijk.eq(49),  0.0); //*BZ
+            tot_rect = tot_rect.where(discordance_ijk.eq(50),  0.0); //*BZ
+      } // 49 e 50 include Babi
+      
+      */
       
       /////////////////////////////////////////////////////////////////////////////////////////////////////
       // Litter
       /////////////////////////////////////////////////////////////////////////////////////////////////////
-      //  Litter - Em desenvolvimento
+
       
       if (biome_i == 1) {
         biome_name = 'amazonia';                                                // Check this 10/10, OK  
