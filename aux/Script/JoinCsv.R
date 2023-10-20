@@ -2,6 +2,8 @@
 library(dplyr)
 library(readr)
 
+# Set your folder - RootPath
+
 # Lista de arquivos CSV na pasta
 csv_files <- list.files(pattern = ".csv")
 
